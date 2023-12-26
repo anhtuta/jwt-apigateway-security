@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/_jwt-apigateway-security.iml" filepath="$PROJECT_DIR$/_jwt-apigateway-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../identity-service/identity-service.iml" filepath="$PROJECT_DIR$/../identity-service/identity-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../restaurant-service/restaurant-service.iml" filepath="$PROJECT_DIR$/../restaurant-service/restaurant-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../swiggy-app/swiggy-app.iml" filepath="$PROJECT_DIR$/../swiggy-app/swiggy-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../swiggy-gateway/swiggy-gateway.iml" filepath="$PROJECT_DIR$/../swiggy-gateway/swiggy-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../swiggy-service-registry/swiggy-service-registry.iml" filepath="$PROJECT_DIR$/../swiggy-service-registry/swiggy-service-registry.iml" />
+    </modules>
+  </component>
+</project>
