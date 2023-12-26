@@ -1,5 +1,15 @@
 # jwt-apigateway-security
 
+Simple microservice app using:
+
+- Spring cloud gateway
+- Service discovery using Netflix eureka
+- JWT authentication (Not OAuth2, No authorization)
+
+Ref: https://www.youtube.com/watch?v=MWvnmyLRUik
+
+My Postman collection: jwt-apigateway-security
+
 ## Regist an user
 
 ```
