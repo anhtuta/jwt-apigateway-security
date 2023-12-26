@@ -25,6 +25,7 @@ curl --location --request POST 'http://localhost:9898/auth/token' \
     "password":"Pwd1"
 }'
 ```
+
 ## Access Swiggy-app
 
 ```
@@ -40,3 +41,11 @@ curl --location --request GET 'http://localhost:8080/restaurant/orders/status/37
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCYXNhbnQiLCJpYXQiOjE2NzkwNTU1MDcsImV4cCI6MTY3OTA1NzMwN30.9nNAW1rx8RoTIrhn5Abtzg7RplvT9_d-U5EOwUcJZq8' \
 --header 'Cookie: JSESSIONID=7CE91EE75A65277C0DCB6C5736C5DF5D'
 ```
+
+# IntelliJ project
+
+To open all these services in a single instance of IntelliJ, we need to create an empty project inside this folder, such as: `H:\Documents\MyProjects\Java\jwt-apigateway-security\_jwt-apigateway-security`, notice I use `_` as a prefix of this project name.
+
+After that, add all these services to that project:
+
+![](./intellij-import-module.png)
