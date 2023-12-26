@@ -49,3 +49,22 @@ To open all these services in a single instance of IntelliJ, we need to create a
 After that, add all these services to that project:
 
 ![](./intellij-import-module.png)
+
+# App design
+
+- `identity-service`:
+  - Là Auth-service trên hình
+  - Có thể coi nó như 1 IAM, có vai trò authenticate user (chưa add chức năng authorize user, tức là hệ thống chưa dùng role, permission)
+- `swiggy-gateway`:
+  - API gateway của hệ thống, mọi request bên ngoài phải gọi qua đây chứ không gọi trực tiếp tới các service khác
+  - Vai trò: routing và authenticating user
+- Other services:
+  - `swiggy-app`: chính là swiggy-service ở trên hình
+  - `restaurant-service`: 1 module khác của hệ thống
+
+Để đơn giản thì `swiggy-app` và `restaurant-service` đều có 1 API là check order status. 2 API này return giá trị như nhau :v
+
+- Bên `swiggy-app` sẽ dùng RestTemplate gọi qua `restaurant-service` để lấy kết quả cho API này
+- Bên `restaurant-service` sẽ dùng 1 HashMap để lưu các dummy order data cho API này
+
+![](./design.png)

@@ -18,6 +18,9 @@ public class AuthService {
     private JwtService jwtService;
 
     public String saveUser(UserCredential credential) {
+        if (repository.findByName(credential.getName()).isPresent()) {
+            throw new RuntimeException("Username existed");
+        }
         credential.setPassword(passwordEncoder.encode(credential.getPassword()));
         repository.save(credential);
         return "user added to the system";
