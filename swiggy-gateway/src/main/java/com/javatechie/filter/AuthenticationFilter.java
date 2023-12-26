@@ -6,7 +6,6 @@ import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
 @Component
 public class AuthenticationFilter extends AbstractGatewayFilterFactory<AuthenticationFilter.Config> {
@@ -15,7 +14,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
     private RouteValidator validator;
 
     //    @Autowired
-//    private RestTemplate template;
+    //    private RestTemplate template;
     @Autowired
     private JwtUtil jwtUtil;
 
@@ -27,7 +26,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
     public GatewayFilter apply(Config config) {
         return ((exchange, chain) -> {
             if (validator.isSecured.test(exchange.getRequest())) {
-                //header contains token or not
+                // header contains token or not
                 if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
                     throw new RuntimeException("missing authorization header");
                 }
@@ -37,8 +36,10 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                     authHeader = authHeader.substring(7);
                 }
                 try {
-//                    //REST call to AUTH service
-//                    template.getForObject("http://IDENTITY-SERVICE//validate?token" + authHeader, String.class);
+                    // REST call to AUTH service
+                    // template.getForObject("http://IDENTITY-SERVICE//validate?token" + authHeader, String.class);
+                    // Thay vì call tới identity service, ta sẽ validate token ở đây luôn, như vậy đỡ mất công gọi,
+                    // vì việc call qua network như vậy sẽ chậm hơn
                     jwtUtil.validateToken(authHeader);
 
                 } catch (Exception e) {
